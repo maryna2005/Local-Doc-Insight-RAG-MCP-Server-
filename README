@@ -1,0 +1,48 @@
+# 🚀 Local-Doc-Insight-RAG (MCP Server)
+
+An advanced Retrieval-Augmented Generation (RAG) server that allows you to chat with your local PDF and text documents privately. This project is built using the **Model Context Protocol (MCP)** for seamless integration with AI tools.
+
+
+
+## ✨ Key Features
+* **Privacy-First:** All document processing and embedding generation happen locally on your machine.
+* **Semantic Search:** Uses `all-MiniLM-L6-v2` to understand the actual meaning of your text, not just keywords.
+* **Fast Indexing:** Powered by **FAISS** (Facebook AI Similarity Search) for near-instant retrieval.
+* **Hardware Optimized:** Specifically tuned to run on CPU-only laptops (like Lenovo Yoga) without requiring a high-end GPU.
+
+## 🛠 Technical Challenges Overcome
+During development, several critical environment issues were resolved to ensure stability:
+* **Stable Runtime:** Migrated from experimental Python 3.14 to **Python 3.12.8** to fix `metadata-generation-failed` errors during package installation.
+* **DLL Fix:** Resolved `WinError 1114` (DLL initialization failed) by correctly configuring the environment for CPU-based execution.
+* **Dependency Management:** Fixed installation issues for `sentence-transformers` and `torch` on Windows 11.
+
+## 📦 Requirements
+* **Python:** 3.12.x (Recommended)
+* **Libraries:** `mcp`, `sentence-transformers`, `faiss-cpu`, `pypdf`, `numpy`
+
+## 🚀 Quick Start
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YOUR_USERNAME/Local-Doc-Insight-RAG.git](https://github.com/YOUR_USERNAME/Local-Doc-Insight-RAG.git)
+   cd Local-Doc-Insight-RAG
+Install dependencies:
+
+Bash
+python -m pip install mcp sentence-transformers faiss-cpu pypdf numpy
+Prepare your data: Place your PDF or TXT files in the data/ folder.
+
+Run the server:
+
+Bash
+python advanced_rag_server.py
+Connect via MCP Inspector:
+
+Bash
+npx @modelcontextprotocol/inspector python advanced_rag_server.py
+🛠 Tools Provided
+load_documents_from_folder(folder_path): Scans and indexes all documents in the specified directory.
+
+ask_knowledge_base(question): Performs a semantic search and returns the most relevant chunks from your documents.
+
+Developed as a robust local AI solution for secure knowledge management.
